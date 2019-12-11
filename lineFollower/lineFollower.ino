@@ -12,10 +12,10 @@
 // kp = 0.02, kd = 0.015, vel 100 //
 // kp = 0.03, kd = 0.015, vel 75 //
 // kp = 0.015, kd = 0.03, vel 50 //
-float kp =0.02;
+float kp =0.005;
 float kd = 0.05;
 float ki =0;//aumenta 30
-int vel = 75;
+int vel = 60;
 int errorp = 0,olderrorp = 0, errord = 0,errortotal = 0,errori,errori1,errori0=0,errorder,errord1,errord0=0,l;
 float ld,li,lfd,lfi;
 int b=0;
