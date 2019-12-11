@@ -9,12 +9,13 @@
 #define i4 4   // izq motor 2
 #define swt 12
 
-// kp = 0.02, kd = 0.15, vel 50
-// kp = 0.01, kd = 0.5, vel 100
-float kp =0.005;
-float kd = 0.5;
+// kp = 0.02, kd = 0.015, vel 100 //
+// kp = 0.03, kd = 0.015, vel 75 //
+// kp = 0.015, kd = 0.03, vel 50 //
+float kp =0.02;
+float kd = 0.05;
 float ki =0;//aumenta 30
-int vel = 100;
+int vel = 75;
 int errorp = 0,olderrorp = 0, errord = 0,errortotal = 0,errori,errori1,errori0=0,errorder,errord1,errord0=0,l;
 float ld,li,lfd,lfi;
 int b=0;
@@ -67,7 +68,7 @@ void setup()
   // 0.1 ms per sensor * 4 samples per sensor read (default) * 6 sensors
   // * 10 reads per calibrate() call = ~24 ms per calibrate() call.
   // Call calibrate() 400 times to make calibration take about 10 seconds.
-  for (uint16_t i = 0; i < 400; i++)
+  for (uint16_t i = 0; i < 150; i++)
   {
     qtr.calibrate();
   }
@@ -127,7 +128,7 @@ void SET_MOTOR(int MOTOR1,int MOTOR2){
   else if (MOTOR1<-255)MOTOR1=-255;
   if(MOTOR2>255)MOTOR2=255;
   else if (MOTOR2<-255)MOTOR2=-255;
-  //******* MOTOR 1******
+  //* MOTOR 1**
   if(MOTOR1<0){
     MOTOR1=-MOTOR1;
     digitalWrite(i3, LOW);
@@ -137,7 +138,7 @@ void SET_MOTOR(int MOTOR1,int MOTOR2){
     digitalWrite(i3, HIGH); 
     digitalWrite(i4, LOW);
   }
-  //******* MOTOR 2******
+  //* MOTOR 2**
   if(MOTOR2<0){
     MOTOR2=-MOTOR2;
     digitalWrite(i2, LOW);
